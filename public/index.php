@@ -1,14 +1,22 @@
 <?php
 
-	$relative_path_to_remove = 'small/';
+	require __DIR__ . '/../vendor/autoload.php';
+	$router = new AltoRouter();
+	$router->setBasePath('/small');
 
-	$request = [
-		'url' => str_replace($relative_path_to_remove, '', $_SERVER['REDIRECT_URL']),
-		'method' => $_SERVER['REQUEST_METHOD'],
-		'params' => $_REQUEST,
-		'cookies' => (!empty($_COOKIES) ? $_COOKIES : []),
-	];
+	// map homepage
+	$router->map( 'GET', '/', function() {
+		echo 'hello world';
+	});
 
-	include('../engine.php');
+	// match current request url
+	$match = $router->match();
 
-?>
+	// call closure or throw 404 status
+	if( is_array($match) && is_callable( $match['target'] ) ) {
+		call_user_func_array( $match['target'], $match['params'] );
+
+	} else {
+		// no route was matched
+		header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
+	}
