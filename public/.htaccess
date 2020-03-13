@@ -1,0 +1,17 @@
+# don't show directory listings, follow symlinks
+Options -Indexes
+Options +FollowSymLinks
+
+# Disable magic quotes because they're a terrible idea
+<IfModule mod_php5.c>
+ php_flag magic_quotes_gpc off
+</IfModule>
+
+
+<IfModule mod_rewrite.c>
+
+        # one rule to rule them all
+        RewriteEngine on
+        RewriteRule ^([\w\d_\-\/]+)$ index.php [QSA,L]
+
+</IfModule>
