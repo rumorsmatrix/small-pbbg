@@ -11,9 +11,6 @@
 		$router->map($method, $url, $callback);
 	}
 
-	// map homepage
-	$router->map( 'GET', '/', "Home@index");
-
 	// match current request url
 	$match = $router->match();
 
@@ -40,7 +37,7 @@
 			echo json_encode($result, JSON_PRETTY_PRINT);
 
 		} else {
-			 header($_SERVER["SERVER_PROTOCOL"] . ' 500');
+			header($_SERVER["SERVER_PROTOCOL"] . ' 500');
 		}
 
 	} else {
