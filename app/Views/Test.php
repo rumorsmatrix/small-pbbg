@@ -4,8 +4,6 @@ namespace App\Views;
 
 class Test extends View {
 
-	public function __construct() { }
-
 	public function __invoke()
 	{
 		$content = $this->includeTemplate('bootstrap-header');
