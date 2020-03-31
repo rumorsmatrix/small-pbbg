@@ -2,12 +2,12 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use Rumorsmatrix\Mud\Server as Server;
+use App\Server as Server;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 // eloquent setup
 $capsule = new Capsule;
-$db_config = include(__DIR__ . '/config/db.php');
+$db_config = include(__DIR__ . '/../config/db.php');
 $capsule->addConnection($db_config);
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
