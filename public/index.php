@@ -5,7 +5,7 @@ $router = new AltoRouter();
 $router->setBasePath('/small');
 
 // load and map routes
-$routes = require __DIR__ . '/../routes.php';
+$routes = require __DIR__ . '/../config/routes.php';
 foreach ($routes as $route) {
 	list($method, $url, $callback) = $route;
 	$router->map($method, $url, $callback);
