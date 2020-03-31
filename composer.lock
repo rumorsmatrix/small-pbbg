@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dff6d91801832f741a03f620239ce02c",
+    "content-hash": "393f09acae52b2d47a54b9372f71ca37",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -893,6 +893,54 @@
                 "standards"
             ],
             "time": "2019-11-18T17:27:11+00:00"
+        },
+        {
+            "name": "vakata/websocket",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vakata/websocket.git",
+                "reference": "0397d024ebc35ea661529893a7265bbaef8f0a7f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vakata/websocket/zipball/0397d024ebc35ea661529893a7265bbaef8f0a7f",
+                "reference": "0397d024ebc35ea661529893a7265bbaef8f0a7f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "clean/phpdoc-md": "dev-master",
+                "codeclimate/php-test-reporter": "dev-master",
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "vakata\\websocket\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "vakata",
+                    "email": "github@vakata.com",
+                    "homepage": "http://www.vakata.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP websocket server and client",
+            "homepage": "https://github.com/vakata/websocket",
+            "keywords": [
+                "vakata",
+                "websocket"
+            ],
+            "time": "2016-10-27T11:39:57+00:00"
         },
         {
             "name": "voku/portable-ascii",

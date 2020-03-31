@@ -1,7 +1,8 @@
 {
     "require": {
         "illuminate/database": "^7.1",
-        "altorouter/altorouter": "^2.0"
+        "altorouter/altorouter": "^2.0",
+        "vakata/websocket": "^1.0"
     },
     "autoload": {
         "psr-4": {
