@@ -16,7 +16,10 @@ class Controller {
 		return (!empty($this->route_parameters[$parameter]) ? $this->route_parameters[$parameter] : null);
 	}
 
-
-
+	public function view($view)
+	{
+		$view_class = "\App\Views\\" . $view;
+		return  (new $view_class)();
+	}
 
 }
