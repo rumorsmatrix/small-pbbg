@@ -40,7 +40,6 @@ if (is_array($match) && is_callable($match['target'])) {
 
 	} elseif (is_int($result)) {
 		header($_SERVER["SERVER_PROTOCOL"] . ' ' . $result);
-		die();
 
 	} elseif (is_array($result)) {
 		header('Content-Type: application/json');
@@ -48,7 +47,8 @@ if (is_array($match) && is_callable($match['target'])) {
 
 	} else {
 		header($_SERVER["SERVER_PROTOCOL"] . ' 500');
-		//print_r($result);
+		header('Content-Type: text/plain');
+		echo "Something went terribly wrong.";
 	}
 
 } else {

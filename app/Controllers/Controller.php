@@ -6,11 +6,17 @@ use App\User;
 class Controller {
 
 	protected $route_parameters = [];
-	public $user = null;
+	protected $user = null;
 
 	public function __construct($route_parameters = [])
 	{
 		$this->route_parameters = $route_parameters;
+
+		// TODO: perform authentication vs. cookies etc. and see if user can view this page etc. here
+		// ...probably make an Auth model that has a bunch of static methods for dealing with password hashes etc
+		// ...actually maybe this should be done in the index boostrap/routing bit and the user passed here for checking
+
+		// put the user on this model for access later on
 		$this->user = (new User)->where('id', 1)->first();
 	}
 
@@ -21,8 +27,11 @@ class Controller {
 
 	public function view($view, $data = [])
 	{
+		// pre-populate with things the view might need
+		$data['route_parameters'] = $this->route_parameters;
 		$data['user'] = $this->user;
 
+		// instantiate and then execute the view's __invoke method
 		$view_class = "\App\Views\\" . $view;
 		return (new $view_class($data))();
 	}
