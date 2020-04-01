@@ -33,4 +33,14 @@ class User extends Model {
         $this->server = $server;
     }
 
+	private function officers()
+	{
+		return $this->hasMany('App\Officer');
+    }
+
+	public function getOfficers()
+	{
+		return $this->officers()->get();
+	}
+
 }

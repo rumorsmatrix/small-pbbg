@@ -22,7 +22,7 @@ class View {
 	{
 		$template_file = self::template_path . $template . '.php';
 		if (file_exists($template_file)) {
-			ob_start();
+			ob_start("\App\Views\View::outputBufferCallback");
 			include($template_file);
 			$content = ob_get_contents();
 			ob_end_clean();
@@ -31,6 +31,16 @@ class View {
 		} else {
 			throw new \Exception("Template file " . $template . " not found");
 		}
+	}
+
+	public static function outputBufferCallback($content)
+	{
+		$error = error_get_last();
+		if ($error && $error["type"] == E_USER_ERROR || $error["type"] == E_ERROR) {
+			die();
+		}
+
+	    return $content;
 	}
 
 }
