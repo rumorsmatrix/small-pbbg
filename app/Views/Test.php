@@ -8,6 +8,11 @@ class Test extends View {
 	{
 		$content = $this->includeTemplate('bootstrap-header');
 		$content .= '<p>Hello, world!</p>';
+
+		$content .= '<pre>';
+		$content .= print_r($this->user, true);
+		$content .= '</pre>';
+
 		$content .= $this->includeTemplate('bootstrap-footer');
 		return $content;
 	}

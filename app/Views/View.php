@@ -8,7 +8,9 @@ class View {
 
 	public function __construct($data = [])
 	{
-		$this->data = $data;
+		foreach ($data as $property => $value) {
+			$this->$property = $value;
+		}
 	}
 
 	public function __invoke()
