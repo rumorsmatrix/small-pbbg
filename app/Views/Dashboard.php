@@ -6,8 +6,8 @@ class Dashboard extends View {
 
 	public function __invoke()
 	{
-		$this->page_title = "Hello, world";
-		$this->page_subtitle = "a subtitle";
+		$this->page_title = "Duty Roster";
+		$this->page_subtitle = "viewing all officers";
 
 		$content = $this->includeTemplate('bootstrap-header');
 		$content .= $this->includeTemplate('officer-test');

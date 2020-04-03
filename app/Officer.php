@@ -61,7 +61,12 @@ class Officer extends Model
 
 	public function getFullRank()
 	{
-		return ucfirst($this->branch) . " " . $this->getRankEntry();
+		return $this->getRankEntry();
+	}
+
+	public function getRankGrade()
+	{
+		return ucfirst(explode(', ', $this->getRankEntry())[1])	;
 	}
 
 	public function getRank()
@@ -69,9 +74,32 @@ class Officer extends Model
 		return explode(', ', $this->getRankEntry())[0];
 	}
 
+	public function getBranch()
+	{
+		return $this->branch;
+	}
+
+	public function getBranchClass()
+	{
+		switch ($this->getBranch()) {
+
+			case 'command':
+				return 'danger';
+			case 'operations':
+				return 'warning';
+			case 'science':
+				return 'primary';
+		}
+	}
+
 	public function getName()
 	{
 		return $this->getRank() . ' ' . $this->name;
+	}
+
+	public function getImage()
+	{
+		return 'images/officers/' . $this->image . ".png";
 	}
 
 	public function getCurrentTask()
@@ -96,6 +124,11 @@ class Officer extends Model
 		$this->save();
 
 		return $this;
+	}
+
+	public function getXPPercentage()
+	{
+		return ($this->xp / $this->getXPToNextLevel()) * 100;
 	}
 
 	public function getXPToNextLevel()

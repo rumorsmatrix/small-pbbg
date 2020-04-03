@@ -6,7 +6,18 @@
 	<link rel="stylesheet" href="vendor/bootstrap-4.4.1.min.css">
 	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 	<style>
-		body { margin-top: 6rem; }
+		@import url('https://fonts.googleapis.com/css?family=Oxanium&display=swap');
+
+		body {
+			background-color: #ddd;
+			background: linear-gradient(to bottom, #ccc, #888) fixed;
+
+			margin-top: 6rem;
+		}
+
+		h2, .fancy, .navbar-brand, .btn {
+			font-family: 'Oxanium';
+		}
 	</style>
 	<title>smallPBBG</title>
 </head>
