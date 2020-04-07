@@ -1,10 +1,19 @@
-class Client {
+class WSClient {
 
 	constructor()
 	{
-		console.log('Connecting to server...');
-		this.socket = new SimpleWebsocket('wss://rumorsmatrix.com:8080');
+		this.address = 'wss://rumorsmatrix.com:8080';
+	}
 
+	connect()
+	{
+		console.log('Connecting to server...');
+		this.socket = new SimpleWebsocket(this.address);
+		this.registerCallbacks();
+	}
+
+	registerCallbacks()
+	{
 		this.socket.on('connect', this.onConnect );
 
 		this.socket.on('data', function(data) {
@@ -29,18 +38,15 @@ class Client {
 		});
 	}
 
-
 	onConnect()
 	{
-		this.ticker = setInterval( function() { client.tick();  } , 5000);
+		this.ticker = setInterval( function() { this.tick(); } , 5000);
 	}
-
 
 	onJSONData(data)
 	{
 		console.log(data);
 	}
-
 
 	onStringData(data)
 	{
@@ -48,16 +54,23 @@ class Client {
 		console.log(data);
 	}
 
+	connected()
+	{
+		return ((this.socket !== undefined)
+			? this.socket.connected
+			: false
+		);
+	}
+
 
 	send(message)
 	{
-		if (this.socket.connected === true) {
+		if (this.socket && this.socket.connected === true) {
 			this.socket.send(message);
 		} else {
 			return false;
 		}
 	}
-
 
 	tick()
 	{
