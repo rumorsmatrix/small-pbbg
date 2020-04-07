@@ -15,7 +15,7 @@ foreach ($routes as $route) {
 // match current request url
 $match = $router->match();
 
-// return response from callback or Controller class
+// return response from callback or via a Controller class
 if (is_array($match) && is_callable($match['target'])) {
 	call_user_func_array( $match['target'], $match['params'] );
 
