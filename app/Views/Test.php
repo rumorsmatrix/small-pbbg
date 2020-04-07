@@ -6,13 +6,11 @@ class Test extends View {
 
 	public function __invoke()
 	{
+		$this->page_title = "Test view";
+		$this->page_subtitle = "lorem ipsum";
+
 		$content = $this->includeTemplate('bootstrap-header');
-		$content .= '<p>Hello, world!</p>';
-
-		$content .= '<pre>';
-		$content .= print_r($this->user, true);
-		$content .= '</pre>';
-
+		$content .= $this->includeTemplate('test');
 		$content .= $this->includeTemplate('bootstrap-footer');
 		return $content;
 	}

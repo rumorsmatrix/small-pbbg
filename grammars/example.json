@@ -1,0 +1,22 @@
+{
+    "animal": [
+        "#size# dog",
+        "#size# cat",
+        "mouse",
+        "rabbit"
+    ],
+    "size": [
+        "big",
+        "small",
+        "large",
+        "tiny"
+    ],
+    "name": [
+        "Amy",
+        "Ron",
+        "April",
+        "Andy",
+        "Ben",
+        "Ann"
+    ]
+}
