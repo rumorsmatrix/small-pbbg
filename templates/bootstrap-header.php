@@ -9,15 +9,17 @@
 		@import url('https://fonts.googleapis.com/css?family=Oxanium&display=swap');
 
 		body {
-			background-color: #ddd;
-			background: linear-gradient(to bottom, #ccc, #888) fixed;
-
-			margin-top: 6rem;
+            background: #ddd linear-gradient(to bottom, #ccc, #888) fixed;
+            margin-top: 6rem;
 		}
 
 		h2, .fancy, .navbar-brand, .btn {
-			font-family: 'Oxanium';
+			font-family: 'Oxanium', sans-serif;
 		}
+
+        .nav-link {
+            cursor: pointer;
+        }
 	</style>
 	<title>smallPBBG</title>
 </head>
@@ -33,21 +35,25 @@
 	<div class="collapse navbar-collapse" id="navbarCollapse">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a class="nav-link" href="#">
+				<span class="nav-link" href="/">
 					<i class="fa fa-fw fa-fab fa-home"></i>
-					Home
-				</a>
+					Duty Roster
+				</span>
+
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">
-					<i class="fa fa-fw fa-fab fa-file"></i>
-					Link
-				</a>
-			</li>
+
+            <?php if ($this->user->id === 1) {  ?>
+                <li class="nav-item">
+                    <span class="nav-link" href="/test">
+                        <i class="fa fa-fw fa-fab fa-file"></i>
+                        Test
+                    </span>
+                </li>
+            <?php } ?>
+            
 		</ul>
 	</div>
 <?php } ?>
-
 
 </nav>
 

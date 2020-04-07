@@ -22,7 +22,6 @@ class Server {
 	public function __construct($address = 'ws://127.0.0.1:8080', $cert = null)
 	{
 		$this->construct_time = time();
-		$this->players = [];
 
 		try {
 			$this->websockets = new WebsocketsServer($address, $cert);

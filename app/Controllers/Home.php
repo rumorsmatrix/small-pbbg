@@ -9,4 +9,12 @@ class Home extends Controller {
 		return $this->view('Dashboard');
 	}
 
+	public function test()
+	{
+		return (($this->user->id === 1)
+			? $this->view('Test')
+			: 404
+		);
+	}
+
 }

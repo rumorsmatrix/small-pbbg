@@ -10,7 +10,7 @@ class Dashboard extends View {
 		$this->page_subtitle = "viewing all officers";
 
 		$content = $this->includeTemplate('bootstrap-header');
-		$content .= $this->includeTemplate('officer-test');
+		$content .= $this->includeTemplate('officer-cards');
 		$content .= $this->includeTemplate('bootstrap-footer');
 		return $content;
 	}
