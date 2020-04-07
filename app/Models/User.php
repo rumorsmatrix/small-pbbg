@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 
@@ -35,7 +35,7 @@ class User extends Model {
 
 	private function officers()
 	{
-		return $this->hasMany('App\Officer');
+		return $this->hasMany('App\Models\Officer');
     }
 
 	public function getOfficers()

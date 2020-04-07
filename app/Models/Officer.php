@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Officer extends Model
@@ -50,7 +50,7 @@ class Officer extends Model
 
     public function getUser()
     {
-        return $this->belongsTo('App\User')->get();
+        return $this->belongsTo('App\Models\User')->get();
     }
 
 	protected function getRankEntry()
@@ -104,7 +104,7 @@ class Officer extends Model
 
 	public function getCurrentTask()
 	{
-		$task = $this->belongsTo('App\Task', 'current_task')->get()->first();
+		$task = $this->belongsTo('App\Models\Task', 'current_task')->get()->first();
 		if ($task === null) return null;
 
 		$task->start_time = $this->current_task_start;
