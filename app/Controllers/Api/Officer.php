@@ -45,7 +45,7 @@ class Officer extends \App\Controllers\Controller {
 	{
 		if (is_null($officer_id)) $officer_id = $this->route_parameters['officer_id'];
 
-		$officer = (new \App\Officer)
+		$officer = (new \App\Models\Officer)
 			->where('id', $officer_id)
 			->where('user_id', $this->user->id)
 			->first();
