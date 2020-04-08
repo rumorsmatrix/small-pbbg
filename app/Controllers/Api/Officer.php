@@ -4,9 +4,9 @@ namespace App\Controllers\Api;
 
 class Officer extends \App\Controllers\Controller {
 
-	public function officer($office_id = null)
+	public function officer($officer_id = null)
 	{
-		$officer = $this->getOfficer();
+		$officer = $this->getOfficer($officer_id);
 		if (!$officer) return ['errors' => ["No matching officer found."]];
 
 		$officer->display_name = $officer->getName();
