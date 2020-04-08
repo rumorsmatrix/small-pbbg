@@ -1,6 +1,7 @@
 server/*.pem
 config/db.php
 /public/tests/
+notes.txt
 
 # Created by https://www.gitignore.io/api/windows,phpstorm
 # Edit at https://www.gitignore.io/?templates=windows,phpstorm
