@@ -18,6 +18,7 @@ class Tracery {
 	 * set from; if given an array uses that grammar directly. Neither are required.
 	 *
 	 * @param  string|array $grammar
+	 * @throws \Exception
 	 */
 	public function __construct($grammar = null)
 	{
