@@ -29,7 +29,7 @@ class User extends Model {
 		return (int)$this->getSocket();
 	}
 
-    public function setServer(Server $server) {
+    public function setServer(\App\Server $server) {
         $this->server = $server;
     }
 

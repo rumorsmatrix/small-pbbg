@@ -36,7 +36,7 @@ class View {
 	public static function outputBufferCallback($content)
 	{
 		$error = error_get_last();
-		if ($error && $error["type"] == E_USER_ERROR || $error["type"] == E_ERROR) {
+		if ($error && ($error["type"] === E_USER_ERROR || $error["type"] === E_ERROR)) {
 			die();
 		}
 

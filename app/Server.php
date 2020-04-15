@@ -5,6 +5,7 @@ use DateTime;
 use Exception;
 use Illuminate\Database\DatabaseManager;
 use vakata\websocket\Server as WebsocketsServer;
+use \App\Models\User as User;
 
 class Server {
 
@@ -76,7 +77,7 @@ class Server {
 		$this->log("Validating client...");
 		if (
 			(isset($client['headers']['origin']) && $client['headers']['origin'] === 'https://rumorsmatrix.com')
-			&& (null !== ((int)$client['socket']))
+			&& (null !== $client['socket'])
 			&& (isset($client['cookies']['ws_session']))
 		) {
 			if (empty($this->users[(int)$client['socket']])) {
@@ -135,7 +136,7 @@ class Server {
 	}
 
 
-	private function onMessage(User $player, $message)
+	private function onMessage(User $user, $message)
 	{
 		if ($message == "PING") {
 			$this->onPing($user);

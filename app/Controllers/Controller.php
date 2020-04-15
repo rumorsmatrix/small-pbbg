@@ -20,7 +20,7 @@ class Controller {
 		$this->user = (new User)->where('id', 1)->first();
 	}
 
-	public function getRouteParameter(string $parameter) : string
+	public function getRouteParameter(string $parameter) : ?string
 	{
 		return (!empty($this->route_parameters[$parameter]) ? $this->route_parameters[$parameter] : null);
 	}

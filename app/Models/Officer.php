@@ -112,7 +112,7 @@ class Officer extends Model
 		return $task;
 	}
 
-	public function startTask(\App\Task $task)
+	public function startTask(\App\Models\Task $task)
 	{
 		if (!is_null($this->current_task)) {
 			throw new \Exception("Officer is already assigned to task ID: " . $this->current_task);
