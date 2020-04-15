@@ -9,6 +9,11 @@ class Home extends Controller {
 		return $this->view('Dashboard');
 	}
 
+	public function black_market()
+	{
+		return $this->view('BlackMarket');
+	}
+
 	public function test()
 	{
 		return (($this->user->id === 1)

@@ -29,6 +29,10 @@
             if (e.target.dataset.target && e.target.attributes.href.textContent) {
                 $('#' + e.target.dataset.target).load('ajax/' + e.target.attributes.href.textContent);
 
+				if (e.target.dataset.target === 'main') {
+					window.history.pushState({"html": '', "pageTitle": 'smallPBBG'}, "", e.target.href);
+				}
+
 			} else {
 				window.location.assign(e.target.href);
 			}

@@ -9,6 +9,11 @@ class Content extends \App\Controllers\Controller {
 		return $this->template('officer-cards');
 	}
 
+	public function black_market()
+	{
+		return $this->template('black-market');
+	}
+
 
 	public function test()
 	{

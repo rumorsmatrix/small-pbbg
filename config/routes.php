@@ -3,13 +3,16 @@
 return [
 
 	// web routes ---------------------------------------------
-	['GET', '/', 		'Home@index'],
-	['GET', '/test', 	'Home@test'],
+	['GET', '/', 'Home@index'],
+	['GET', '/dashboard', 'Home@index'],
+	['GET', '/test', 'Home@test'],
+	['GET', '/black-market', 'Home@black_market'],
 
 
 	// AJAX routes ---------------------------------------------
 	['GET', '/ajax/test', 'Ajax\Content@test'],
 	['GET', '/ajax/dashboard', 'Ajax\Content@dashboard'],
+	['GET', '/ajax/black-market', 'Ajax\Content@black_market'],
 
 
 	// API routes: Officers -----------------------------------
