@@ -33,6 +33,16 @@ class User extends Model {
         $this->server = $server;
     }
 
+	private function sessions()
+	{
+		return $this->hasMany('App\Models\Session');
+    }
+
+	public function getSessions()
+	{
+		return $this->sessions()->get();
+	}
+
 	private function officers()
 	{
 		return $this->hasMany('App\Models\Officer');
