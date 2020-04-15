@@ -6,7 +6,11 @@ class Test extends View {
 
 	public function __invoke()
 	{
-		return $this->includeTemplate('test');
+		$content = $this->includeTemplate('bootstrap-header')
+			. $this->includeTemplate('test')
+			. $this->includeTemplate('bootstrap-footer');
+
+		return $content;
 	}
 
 }
