@@ -52,6 +52,13 @@
 				</li>
 			<?php } ?>
 
+				<li class="nav-item">
+					<a class="nav-link" href="https://twitter.com/rumorsmatrix">
+						<i class="fa fa-fw fa-fab fa-twitter"></i>
+						Twitter
+					</a>
+				</li>
+
 		</ul>
 	</div>
 <?php } ?>

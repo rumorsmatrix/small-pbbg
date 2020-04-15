@@ -26,12 +26,12 @@
 		// add SPA AJAX links
         $(document).on('click', 'a', function(e) {
             e.preventDefault();
-
             if (e.target.dataset.target && e.target.attributes.href.textContent) {
                 $('#' + e.target.dataset.target).load('ajax/' + e.target.attributes.href.textContent);
-            }
 
-            e.default();
+			} else {
+				window.location.assign(e.target.href);
+			}
         });
 
 
