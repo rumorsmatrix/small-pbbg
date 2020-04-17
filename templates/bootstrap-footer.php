@@ -1,5 +1,5 @@
 
-
+        </div>
     </main>
 
 
@@ -27,20 +27,22 @@
         $(document).on('click', 'a', function(e) {
             e.preventDefault();
 
-			console.log(e.target);
-
             if (e.target.dataset.target && e.target.attributes.href.textContent) {
                 $('#' + e.target.dataset.target).load('ajax/' + e.target.attributes.href.textContent);
 
 				if (e.target.dataset.target === 'main' && e.target.href) {
 					if (e.target.attributes.href.textContent !== '#') {
 						window.history.pushState(e.target.href, "", e.target.href);
-						$('.navbar-toggler').click();
+
+                        let toggler = $('.navbar-toggler');
+                        if (toggler.is(":visible")) toggler.click();
 					}
 				}
 
 			} else {
-				window.location.assign(e.target.href);
+                if (e.target.attributes.href && e.target.attributes.href.textContent !== '#') {
+                    window.location.assign(e.target.href);
+                }
 			}
         });
 
@@ -48,10 +50,11 @@
 		window.onpopstate = function(e) {
 			e.preventDefault();
 			if(e.state){
-				console.log("doing the thing: " + e.state);
 				window.location.assign(e.state.split('#')[0]);
 			}
 		};
+
+		console.log('Page loaded.');
 
 
 	</script>

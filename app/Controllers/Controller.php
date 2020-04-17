@@ -8,16 +8,10 @@ class Controller {
 	protected $route_parameters = [];
 	protected $user = null;
 
-	public function __construct($route_parameters = [])
+	public function __construct($route_parameters = [], User $user = null)
 	{
 		$this->route_parameters = $route_parameters;
-
-		// TODO: perform authentication vs. cookies etc. and see if user can view this page etc. here
-		// ...probably make an Auth model that has a bunch of static methods for dealing with password hashes etc
-		// ...actually maybe this should be done in the index boostrap/routing bit and the user passed here for checking
-
-		// put the user on this model for access later on
-		$this->user = (new User)->where('id', 1)->first();
+		$this->user = $user;
 	}
 
 	public function getRouteParameter(string $parameter) : ?string
@@ -48,6 +42,12 @@ class Controller {
 		$data = $this->compileDataForView($data);
 		$view = new \App\Views\View($data);
 		return $view->includeTemplate($template);
+	}
+
+	public function auth($admin_level = 0)
+	{
+		if (!$this->user) return false;
+		return ($this->user->admin >= $admin_level);
 	}
 
 }

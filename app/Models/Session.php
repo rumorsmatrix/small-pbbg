@@ -5,11 +5,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Session extends Model
 {
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [];
+
+	public function getUser()
+	{
+		return $this->belongsTo('App\Models\User', 'user_id')->get()->first();
+	}
 
 }

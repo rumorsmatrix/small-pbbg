@@ -1,5 +1,7 @@
 <?php
 
+use \App\Models\User;
+
 require_once('../bootstrap.php');
 
 $router = new AltoRouter();
@@ -22,8 +24,35 @@ if (is_array($match) && is_callable($match['target'])) {
 } elseif (is_array($match) && is_string($match['target']) && strpos($match['target'], '@') > 0) {
 	list($class, $method) = explode("@", $match['target']);
 
-	$controller_class =  "\App\Controllers\\" . $class;
-	$controller = new $controller_class($match['params']);
+	// do some authentication
+	$user = null;
+
+	if (isset($_COOKIE['session_id'])) {
+		$session = (new \App\Models\Session)
+			->where('session_id', $_COOKIE['session_id'])
+			->get()
+			->first();
+
+		if ($session) $user = $session->getUser();
+	}
+
+	try {
+		$controller_class =  "\App\Controllers\\" . $class;
+		$controller = new $controller_class($match['params'], $user);
+
+	} catch (\Exception $e) {
+		if ($e->getMessage() == 'NOT_AUTH') {
+			header( $_SERVER["SERVER_PROTOCOL"] . ' 403 Forbidden');
+			die();
+
+		} else {
+	        header($_SERVER["SERVER_PROTOCOL"] . ' 500');
+    	    header('Content-Type: text/plain');
+        	echo "Something went terribly wrong during routing.";
+		}
+	}
+
+
 	$result = $controller->$method();
 
 	// vary result output based on type returned -- kind of ugly but I like it

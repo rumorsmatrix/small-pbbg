@@ -1,33 +1,7 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-    <link rel="icon" type="image/png" href="favicon.png" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="vendor/bootstrap-4.4.1.min.css">
-	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-	<style>
-		@import url('https://fonts.googleapis.com/css?family=Oxanium&display=swap');
-
-		body {
-			/*background: #ddd linear-gradient(to bottom, #ccc, #888) fixed;*/
-			margin-top: 6rem;
-		}
-
-		h2, .card-title, .card-subtitle, .card-header, .fancy, .navbar-brand, .btn {
-			font-family: 'Oxanium', sans-serif;
-		}
-
-		.nav-link {
-			cursor: pointer;
-		}
-	</style>
-	<title>smallPBBG</title>
-</head>
-<body class="bg-secondary">
+<?php include('html-header.php'); ?>
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow-lg">
-	<a class="navbar-brand" href="#">smallPBBG</a>
+	<a class="navbar-brand" href="dashboard" data-target="main">smallPBBG</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
@@ -48,7 +22,10 @@
 					Locations
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="black-market" data-target="main">Black Market</a>
+					<a class="dropdown-item" href="black-market" data-target="main">
+                        <i class="fas fa-fw fa-coins"></i>
+                        Black Market
+                    </a>
 					<!--
 					<a class="dropdown-item" href="#">Another action</a>
 					<div class="dropdown-divider"></div>
@@ -82,4 +59,3 @@
 <main role="main">
 
 	<div class="container" id="main">
-

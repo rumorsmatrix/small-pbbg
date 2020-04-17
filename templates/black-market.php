@@ -1,3 +1,4 @@
+
 <div class="card shadow-lg mb-4  border-0">
 	<h5 class="card-header bg-dark text-light">
 		Lepton's Black Market
@@ -28,11 +29,7 @@
 				</div>
 			</div>
 
-
-
-
 		</li>
 	</ul>
 
 </div>
-

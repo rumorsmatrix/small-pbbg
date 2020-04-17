@@ -4,8 +4,9 @@ return [
 
 	// web routes ---------------------------------------------
 	['GET', '/', 'Home@index'],
+	['GET', '/login', 'Home@login'],
 	['GET', '/dashboard', 'Home@index'],
-	['GET', '/test', 'Home@test'],
+	['GET', '/test', 'AuthHome@test'],
 	['GET', '/black-market', 'Home@black_market'],
 
 
